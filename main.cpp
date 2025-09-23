@@ -1,25 +1,36 @@
 #include <SFML/Graphics.hpp>
 
+using namespace sf;
+
 int main() {
-  sf::RenderWindow window(sf::VideoMode(1920, 1080), "Correct SFML Example",
-                          sf::Style::Default);
-  sf::CircleShape shape(540.f);
-  shape.setFillColor(sf::Color::Green);
+  RenderWindow window(VideoMode(1920, 1080), "Correct SFML Example",
+                      Style::Default);
+  RectangleShape shape(sf::Vector2f(50,50));
+  shape.setFillColor(Color::Green);
   bool focus = window.hasFocus();
   window.setPosition({10, 50});
+  int y = 0;
+  int x = 10;
+  window.setFramerateLimit(30);
 
   while (window.isOpen()) {
-    sf::Event event;
+    Event event;
     while (window.pollEvent(event)) {
-      if (event.type == sf::Event::Closed) {
+      if (event.type == Event::Closed) {
         window.close();
       }
     }
-    if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && focus) {
+    if (Mouse::isButtonPressed(sf::Mouse::Button::Left) && focus) {
       // left mouse button is pressed: shoot
-      shape.setPosition(400,0);
-      shape.setFillColor(sf::Color::Blue);
+      shape.move(5,0.5);
+      shape.setFillColor(Color::Blue);
     }
+    if(shape.getPosition().x >= window.getSize().x){
+      shape.setPosition(x,y);
+      y = y+50;
+      x++;
+    }
+    shape.move(x,0.5);
     window.clear();
     window.draw(shape);
     window.display();
