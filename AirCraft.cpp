@@ -1,9 +1,28 @@
 #include "AirCraft.h"
 
-//Need Implementing
-AirCraft::AirCraft(){}
-AirCraft::AirCraft(float fuel, int weight, int flightNumber, int speed, bool isEmergency, sf::Texture texture){}
-AirCraft::~AirCraft(){}
+#include <iostream>
+
+using namespace std;
+
+// Need Implementing
+AirCraft::AirCraft() : AirCraft(0, 0, 0, 0, false) {}
+AirCraft::AirCraft(float fuel, int weight, int flightNumber, int speed,
+                   bool isEmergency)
+    : fuel(fuel),
+      weight(weight),
+      flightNumber(flightNumber),
+      speed(speed),
+      isEmergency(isEmergency) {
+  sf::Texture airplane;
+  // airplane.loadFromFile("assets/PlaneSprite(100x100).png");
+  if (!airplane.loadFromFile("assets/PlaneSprite(100x100).png")) {
+    cout << "Error Loading texture \n";
+    return;
+  }
+  sf::Sprite body;
+  body.setTexture(airplane);
+}
+AirCraft::~AirCraft() {}
 
 // setters
 void AirCraft::setFuel(float fuel) {
@@ -33,7 +52,7 @@ void AirCraft::setFlightNumber(int flightNumber) {
 }
 void AirCraft::setSpeed(int speed) {}
 void AirCraft::setIsEmergency(bool isEmergency) {
-  this->isEmergengy = isEmergency;
+  this->isEmergency = isEmergency;
 }
 void AirCraft::setBody(sf::Sprite body) { this->body = sf::Sprite(body); }
 
@@ -42,5 +61,5 @@ float AirCraft::getFuel() { return fuel; }
 int AirCraft::getWeight() { return weight; }
 int AirCraft::getFlightNumber() { return flightNumber; }
 int AirCraft::getSpeed() { return speed; }
-bool AirCraft::getIsEmergency() { return isEmergengy; }
+bool AirCraft::getIsEmergency() { return isEmergency; }
 sf::Sprite AirCraft::getBody() { return body; }
