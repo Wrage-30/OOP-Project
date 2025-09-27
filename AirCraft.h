@@ -13,12 +13,14 @@ class AirCraft {
   int speed;
   // Boolean variable used to indicate emergency
   bool isEmergency;
-  sf::Sprite body;
+  sf::Texture* airplaneTexture;
+  sf::Sprite* body;
 
  public:
   AirCraft();
   AirCraft(float fuel, int weight, int flightNumber, int speed, bool isEmergency);
   ~AirCraft();
+  void draw(sf::RenderWindow* window);
 
   // setters
   void setFuel(float fuel);
@@ -26,13 +28,13 @@ class AirCraft {
   void setFlightNumber(int flightNumber);
   void setSpeed(int speed);
   void setIsEmergency(bool isEmergency);
-  void setBody(sf::Sprite body);
+  void setBody(sf::Sprite &body);
   // getters
   float getFuel();
   int getWeight();
   int getFlightNumber();
   int getSpeed();
   bool getIsEmergency();
-  sf::Sprite getBody();
+  sf::Sprite* getBody();
 };
 #endif
