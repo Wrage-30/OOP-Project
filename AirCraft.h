@@ -7,7 +7,7 @@ using namespace std;
 class AirCraft {
  protected:
   // data members
-  float fuel;  // from 0-100.0
+  float fuel;  // from 0-100.0%
   int weight;  // kiligrams
   int flightNumber;
   int speed;

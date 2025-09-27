@@ -36,6 +36,7 @@ void AirCraft::setIsEmergency(bool isEmergency) {
   this->isEmergengy = isEmergency;
 }
 void AirCraft::setBody(sf::Sprite body) { this->body = sf::Sprite(body); }
+
 // getters
 float AirCraft::getFuel() { return fuel; }
 int AirCraft::getWeight() { return weight; }
