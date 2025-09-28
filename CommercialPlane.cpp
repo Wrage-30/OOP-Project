@@ -1,5 +1,5 @@
-// implementation file for CommercialPlane.h
-// inherits from <-Plane <-AirCraft
+// Implementation file for CommercialPlane.h
+// Inherits from <-Plane <-AirCraft
 
 #include "CommercialPlane.h"
 

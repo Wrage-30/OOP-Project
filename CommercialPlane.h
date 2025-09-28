@@ -1,3 +1,5 @@
+// Header file for the class CommercialPlane
+// Inherits from <-Plane <-AirCraft
 #ifndef COMMERCIALPLANE_H
 #define COMMERCIALPLANE_H
 #include "Plane.h"

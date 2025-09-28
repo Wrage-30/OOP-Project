@@ -4,12 +4,13 @@
 #include <iostream>
 
 #include "AirCraft.h"
+#include "Plane.h"
+#include "CommercialPlane.h"
 
 using namespace sf;
 
 int main() {
-  // AirCraft a1 = AirCraft(
-  // 1, 1, 1, 1, false);  // fuel, weight, flightnumber, speed, isEmergency
+  // AirCraft a1 = AirCraft(1, 1, 1, 1, false);  // fuel, weight, flightnumber, speed, isEmergency
 
   // sf::Texture text;
   // text.loadFromFile("assets/PlaneSprite(20x20).png");
