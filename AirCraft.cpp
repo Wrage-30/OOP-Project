@@ -15,17 +15,16 @@ AirCraft::AirCraft(float fuel, int weight, int flightNumber, int speed,
       speed(speed),
       isEmergency(isEmergency) {
   setFuel(fuel);
+  // Creating an empty Texture and Sprite in the heap
   airplaneTexture = new sf::Texture;
-
-  // if (!airplaneTexture->loadFromFile("assets/PlaneSprite(100x100).png")) {
-  // cout << "Error Loading plane texture \n";
-  // }
-
   body = new sf::Sprite();
+  // Loading the Texture from a file
+  if (!airplaneTexture->loadFromFile("assets/PlaneSprite(100x100).png")) {
+    throw(std::runtime_error("File failed to load"));
+  }
+  body->setTexture(*airplaneTexture);
 
-  // body->setTexture(*airplaneTexture);
-
-  // body->setOrigin(sf::Vector2f(50, 50));
+  body->setOrigin(sf::Vector2f(50, 50));
   body->setPosition(sf::Vector2f(-1, -1));
 }
 
