@@ -1,0 +1,36 @@
+// implementation file for CommercialPlane.h
+// inherits from <-Plane <-AirCraft
+
+#include "CommercialPlane.h"
+
+#include <stdexcept>
+
+using namespace std;
+
+CommercialPlane::CommercialPlane() : CommercialPlane(0, 0, 0, 0, false, 0, 0) {}
+
+CommercialPlane::CommercialPlane(float fuel, int weight, int flightNumber,
+                                 int speed, bool isEmergency, int wingspan,
+                                 int passengers)
+    : Plane(fuel, weight, flightNumber, speed, isEmergency, wingspan) {
+  setPassengers(passengers);
+}
+
+CommercialPlane::~CommercialPlane() {}
+
+// implementation for circling using weight and passengers as factors for the
+// fuel consumption
+void CommercialPlane::flyCircle() {
+  // unsure of logic here yet
+}
+
+// Setter
+void CommercialPlane::setPassengers(int passengers) {
+  if (passengers < 0) {
+    throw(out_of_range("This value cannot be less than 0"));
+  } else
+    this->passengers = passengers;
+}
+
+// getter
+int CommercialPlane::getPassengers() { return passengers; }
