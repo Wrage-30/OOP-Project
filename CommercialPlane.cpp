@@ -14,14 +14,28 @@ CommercialPlane::CommercialPlane(float fuel, int weight, int flightNumber,
                                  int passengers)
     : Plane(fuel, weight, flightNumber, speed, isEmergency, wingspan) {
   setPassengers(passengers);
+
+  // Loading Texture from a file
+  if (!airplaneTexture->loadFromFile("assets/CommercialSprite(100x100).png")) {
+    throw(std::runtime_error("File failed to load"));
+  }
+
+  // Assign the texture to the body Sprite
+  body->setTexture(*airplaneTexture);
+
+  // Set origin to the middle of the 100x100 sprite
+  body->setOrigin(sf::Vector2f(50, 50));
+
+  // Set position to outside the screen
+  body->setPosition(sf::Vector2f(-1, -1));
 }
 
 CommercialPlane::~CommercialPlane() {}
 
-// implementation for circling using weight and passengers as factors for the
+// Implementation for circling using weight and passengers as factors for the
 // fuel consumption
 void CommercialPlane::flyCircle() {
-  // unsure of logic here yet
+  // Unsure of logic here yet
 }
 
 // Setter
@@ -32,5 +46,5 @@ void CommercialPlane::setPassengers(int passengers) {
     this->passengers = passengers;
 }
 
-// getter
+// Getter
 int CommercialPlane::getPassengers() { return passengers; }

@@ -2,33 +2,56 @@
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <stdexcept>
 
 #include "AirCraft.h"
-#include "Plane.h"
+#include "CargoPlane.h"
 #include "CommercialPlane.h"
+#include "Plane.h"
 
 using namespace sf;
 
 int main() {
-  // AirCraft a1 = AirCraft(1, 1, 1, 1, false);  // fuel, weight, flightnumber, speed, isEmergency
+  try {
+    // AirCraft a1 = AirCraft(1, 1, 1, 1, false);  // fuel, weight,
+    // flightnumber, speed, isEmergency
+    CommercialPlane plane1 =
+        CommercialPlane(50.5, 100, 1, 1000, false, 34, 200);
 
-  // sf::Texture text;
-  // text.loadFromFile("assets/PlaneSprite(20x20).png");
-  // a1.getBody()->setTexture(text);
+    CargoPlane plane2 =
+        CargoPlane(99, 1000, 2, 50, true, 50, "Medical Supplies", 1500);
 
-  sf::RenderWindow window(sf::VideoMode(1000, 600), "AirCraft Testing",
-                          sf::Style::Default);
-  while (window.isOpen()) {
-    Event event;
-    while (window.pollEvent(event)) {
-      if (event.type == Event::Closed) {
-        window.close();
+    sf::RenderWindow window(sf::VideoMode(1400, 1000), "AirCraft Testing",
+                            sf::Style::Default);
+
+    window.setPosition(sf::Vector2i(10, 10));
+
+    plane2.getBody()->setPosition(sf::Vector2f(1401,0));
+
+    while (window.isOpen()) {
+      Event event;
+      while (window.pollEvent(event)) {
+        if (event.type == Event::Closed) {
+          window.close();
+        }
       }
-    }
 
-    window.clear(sf::Color::Blue);
-    // a1.draw(&window);
-    window.display();
+      plane1.move(sf::Vector2f(0.5, 0.3));
+      plane2.move(sf::Vector2f(-0.5,0.3));
+
+      window.clear(sf::Color::White);
+      plane1.draw(&window);
+      plane2.draw(&window);
+      window.display();
+    }
+  }
+  // catching the file doesn't load
+  catch (const std::runtime_error& message) {
+    std::cerr << message.what() << std::endl;
+  }
+  // catch for the input values being out of range
+  catch (const std::out_of_range& err) {
+    std::cerr << err.what() << std::endl;
   }
   return 0;
 }

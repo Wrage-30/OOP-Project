@@ -15,7 +15,23 @@ CargoPlane::CargoPlane(float fuel, int weight, int flightNumber, int speed,
                        int freightWeight)
     : Plane(fuel, weight, flightNumber, speed, isEmergency, wingspan),
       freightType(freightType) {
+
+  // User setter for error handling
   setFreightWeight(freightWeight);
+ 
+  // Loading Texture from a file
+  if (!airplaneTexture->loadFromFile("assets/CargoSprite(100x100).png")) {
+    throw(std::runtime_error("File failed to load"));
+  }
+
+  // Assign the texture to the body Sprite
+  body->setTexture(*airplaneTexture);
+
+  // Set origin to the middle of the 100x100 sprite
+  body->setOrigin(sf::Vector2f(50, 50));
+
+  // Set position to outside the screen
+  body->setPosition(sf::Vector2f(-1, -1));
 }
 
 CargoPlane::~CargoPlane() {}
