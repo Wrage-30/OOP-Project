@@ -2,6 +2,7 @@
 // Inherits from <-Plane <-AirCraft
 #ifndef COMMERCIALPLANE_H
 #define COMMERCIALPLANE_H
+
 #include "Plane.h"
 
 using namespace std;
