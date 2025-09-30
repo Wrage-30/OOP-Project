@@ -21,12 +21,25 @@ int main() {
     CargoPlane plane2 =
         CargoPlane(99, 1000, 2, 50, true, 50, "Medical Supplies", 1500);
 
-    sf::RenderWindow window(sf::VideoMode(1400, 1000), "AirCraft Testing",
+    // Assigning a new sprite and texture to the background
+    sf::Texture backgroundTexture;
+    if (!backgroundTexture.loadFromFile("assets/map1.png")) {
+      // Error handling for failed texture loading
+      throw(std::runtime_error("File failed to load"));
+    }
+
+    // Create a sprite from the texture
+    sf::Sprite backgroundSprite;
+    backgroundSprite.setTexture(backgroundTexture);
+    backgroundSprite.setPosition(0, 0);
+    backgroundSprite.move(300,0);
+
+    sf::RenderWindow window(sf::VideoMode(1000, 700), "AirCraft Testing",
                             sf::Style::Default);
 
     window.setPosition(sf::Vector2i(10, 10));
 
-    plane2.getBody()->setPosition(sf::Vector2f(1401,0));
+    plane2.getBody()->setPosition(sf::Vector2f(1001, 0));
 
     while (window.isOpen()) {
       Event event;
@@ -36,10 +49,12 @@ int main() {
         }
       }
 
-      plane1.move(sf::Vector2f(0.5, 0.3));
-      plane2.move(sf::Vector2f(-0.5,0.3));
+      plane1.move(sf::Vector2f(0.2, 0.12));
+      plane2.move(sf::Vector2f(-0.2, 0.12));
+
 
       window.clear(sf::Color::White);
+      window.draw(backgroundSprite);
       plane1.draw(&window);
       plane2.draw(&window);
       window.display();
