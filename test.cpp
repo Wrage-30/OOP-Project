@@ -13,22 +13,22 @@ using namespace sf;
 
 int main() {
   try {
-    // AirCraft a1 = AirCraft(1, 1, 1, 1, false);  // fuel, weight,
-    // flightnumber, speed, isEmergency
+    // fuel, weight,flightnumber, speed, isEmergency
+    // AirCraft a1 = AirCraft(1, 1, 1, 1, false);
     CommercialPlane plane1 =
         CommercialPlane(50.5, 100, 1, 1000, false, 34, 200);
     plane1.getBody()->setRotation(110);
-    plane1.getBody()->setPosition(270,0);
+    plane1.getBody()->setPosition(270, 0);
 
     CargoPlane plane2 =
         CargoPlane(99, 1000, 2, 50, true, 50, "Medical Supplies", 1500);
     plane2.getBody()->setRotation(170);
 
-    //menu shape making
-    sf::RectangleShape menuBackground = RectangleShape(sf::Vector2f(300,700));
-    Color menu = Color(150,150,150);
+    // menu shape making
+    sf::RectangleShape menuBackground = RectangleShape(sf::Vector2f(300, 700));
+    Color menu = Color(150, 150, 150);
     menuBackground.setFillColor(menu);
-    menuBackground.setPosition(sf::Vector2f(0,0));
+    menuBackground.setPosition(sf::Vector2f(0, 0));
 
     // Assigning a new sprite and texture to the background
     sf::Texture backgroundTexture;
@@ -41,7 +41,7 @@ int main() {
     sf::Sprite backgroundSprite;
     backgroundSprite.setTexture(backgroundTexture);
     backgroundSprite.setPosition(0, 0);
-    backgroundSprite.move(300,0);
+    backgroundSprite.move(300, 0);
 
     sf::RenderWindow window(sf::VideoMode(1000, 700), "AirCraft Testing",
                             sf::Style::Default);
@@ -60,7 +60,6 @@ int main() {
 
       plane1.move(sf::Vector2f(0.012, 0.02));
       plane2.move(sf::Vector2f(-0.02, 0.02));
-
 
       window.clear(sf::Color::White);
       window.draw(backgroundSprite);

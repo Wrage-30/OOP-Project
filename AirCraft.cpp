@@ -1,3 +1,5 @@
+// Implementation file for the AirCraft.h
+
 #include "AirCraft.h"
 
 #include <iostream>
@@ -18,14 +20,16 @@ AirCraft::AirCraft(float fuel, int weight, int flightNumber, int speed,
   // Creating an empty Texture and Sprite in the heap
   airplaneTexture = new sf::Texture;
   body = new sf::Sprite();
-  // Loading the Texture from a file
-  if (!airplaneTexture->loadFromFile("assets/PlaneSprite(100x100).png")) {
-    throw(std::runtime_error("File failed to load"));
-  }
-  body->setTexture(*airplaneTexture);
 
-  body->setOrigin(sf::Vector2f(50, 50));
-  body->setPosition(sf::Vector2f(-1, -1));
+  // USED FOR TESTING, UNEEDED FOR ABSTRACT CLASS
+  //  Loading the Texture from a file
+  //  if (!airplaneTexture->loadFromFile("assets/PlaneSprite(100x100).png")) {
+  //  throw(std::runtime_error("File failed to load"));
+  // }
+  // body->setTexture(*airplaneTexture);
+
+  // body->setOrigin(sf::Vector2f(50, 50));
+  // body->setPosition(sf::Vector2f(-1, -1));
 }
 
 AirCraft::~AirCraft() {
@@ -46,9 +50,9 @@ void AirCraft::setFuel(float fuel) {
     this->fuel = fuel;
   } else {
     // throwing an error for out of range value
-    throw(out_of_range("Value " + std::to_string(fuel) +
-                       " is outside the expected range [" + std::to_string(0) +
-                       ", " + std::to_string(100.0) + "]"));
+    throw(out_of_range(
+        "Value " + std::to_string(fuel) + " is outside the expected range [" +
+        std::to_string(0.0) + ", " + std::to_string(100.0) + "]"));
   }
 }
 void AirCraft::setWeight(int weight) {
@@ -65,7 +69,10 @@ void AirCraft::setFlightNumber(int flightNumber) {
   } else
     this->flightNumber = flightNumber;
 }
-void AirCraft::setSpeed(int speed) {}
+void AirCraft::setSpeed(int speed) {
+  // Positive speed is forward, Negative is backwards
+  this->speed = speed;
+}
 
 void AirCraft::setIsEmergency(bool isEmergency) {
   this->isEmergency = isEmergency;
