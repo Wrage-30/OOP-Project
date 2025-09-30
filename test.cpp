@@ -17,9 +17,18 @@ int main() {
     // flightnumber, speed, isEmergency
     CommercialPlane plane1 =
         CommercialPlane(50.5, 100, 1, 1000, false, 34, 200);
+    plane1.getBody()->setRotation(110);
+    plane1.getBody()->setPosition(270,0);
 
     CargoPlane plane2 =
         CargoPlane(99, 1000, 2, 50, true, 50, "Medical Supplies", 1500);
+    plane2.getBody()->setRotation(170);
+
+    //menu shape making
+    sf::RectangleShape menuBackground = RectangleShape(sf::Vector2f(300,700));
+    Color menu = Color(150,150,150);
+    menuBackground.setFillColor(menu);
+    menuBackground.setPosition(sf::Vector2f(0,0));
 
     // Assigning a new sprite and texture to the background
     sf::Texture backgroundTexture;
@@ -49,14 +58,15 @@ int main() {
         }
       }
 
-      plane1.move(sf::Vector2f(0.2, 0.12));
-      plane2.move(sf::Vector2f(-0.2, 0.12));
+      plane1.move(sf::Vector2f(0.012, 0.02));
+      plane2.move(sf::Vector2f(-0.02, 0.02));
 
 
       window.clear(sf::Color::White);
       window.draw(backgroundSprite);
       plane1.draw(&window);
       plane2.draw(&window);
+      window.draw(menuBackground);
       window.display();
     }
   }
