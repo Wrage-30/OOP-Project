@@ -37,10 +37,13 @@ AirCraft::~AirCraft() {
   delete body;
 }
 
+// Function that draws the AirCraft sprite on the RenderWindow
 void AirCraft::draw(sf::RenderWindow* window) { window->draw(*body); }
 
+// Function to simplify movement for the sprite
 void AirCraft::move(sf::Vector2f distance) { this->body->move(distance); }
 
+// Function to reduce fuel if told to circle (unable to land)
 void AirCraft::flyCircle() {}
 
 // setters
