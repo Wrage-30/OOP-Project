@@ -4,7 +4,7 @@
 
 using namespace std;
 
-class AirCraft {
+class Aircraft {
  protected:
   // data members
   float fuel;  // from 0-100.0%
@@ -18,12 +18,12 @@ class AirCraft {
   sf::Sprite* body;
 
  public:
-  AirCraft();
-  AirCraft(float fuel, int weight, int flightNumber, int speed,
+  Aircraft();
+  Aircraft(float fuel, int weight, int flightNumber, int speed,
            bool isEmergency);
-  virtual ~AirCraft();
+  virtual ~Aircraft();
 
-  // draws the AirCraft sprite on the RenderWindow for the game
+  // draws the Aircraft sprite on the RenderWindow for the game
   void draw(sf::RenderWindow* window);
 
   // Function to simplify movement for the sprite

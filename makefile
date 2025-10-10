@@ -14,7 +14,7 @@ TARGET = Airport-sfml-app
 
 # Source files
 
-SRCS = AirCraft.cpp Plane.cpp CommercialPlane.cpp CargoPlane.cpp test.cpp
+SRCS = Aircraft.cpp Plane.cpp CommercialPlane.cpp CargoPlane.cpp test.cpp
 
 # Build and run tests
 

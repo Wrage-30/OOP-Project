@@ -3,11 +3,11 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "AirCraft.h"
+#include "Aircraft.h"
 
 using namespace std;
 
-class Plane : public AirCraft {
+class Plane : public Aircraft {
  protected:
   int wingspan;  // Total length of planes wings
  public:

@@ -1,6 +1,6 @@
-// Implementation file for the AirCraft.h
+// Implementation file for the Aircraft.h
 
-#include "AirCraft.h"
+#include "Aircraft.h"
 
 #include <iostream>
 #include <stdexcept>
@@ -9,8 +9,8 @@
 using namespace std;
 
 // Need Implementing
-AirCraft::AirCraft() : AirCraft(0, 0, 0, 0, false) {}
-AirCraft::AirCraft(float fuel, int weight, int flightNumber, int speed,
+Aircraft::Aircraft() : Aircraft(0, 0, 0, 0, false) {}
+Aircraft::Aircraft(float fuel, int weight, int flightNumber, int speed,
                    bool isEmergency)
     : weight(weight),
       flightNumber(flightNumber),
@@ -32,22 +32,22 @@ AirCraft::AirCraft(float fuel, int weight, int flightNumber, int speed,
   // body->setPosition(sf::Vector2f(-1, -1));
 }
 
-AirCraft::~AirCraft() {
+Aircraft::~Aircraft() {
   delete airplaneTexture;
   delete body;
 }
 
-// Function that draws the AirCraft sprite on the RenderWindow
-void AirCraft::draw(sf::RenderWindow* window) { window->draw(*body); }
+// Function that draws the Aircraft sprite on the RenderWindow
+void Aircraft::draw(sf::RenderWindow* window) { window->draw(*body); }
 
 // Function to simplify movement for the sprite
-void AirCraft::move(sf::Vector2f distance) { this->body->move(distance); }
+void Aircraft::move(sf::Vector2f distance) { this->body->move(distance); }
 
 // Function to reduce fuel if told to circle (unable to land)
-void AirCraft::flyCircle() {}
+void Aircraft::flyCircle() {}
 
 // setters
-void AirCraft::setFuel(float fuel) {
+void Aircraft::setFuel(float fuel) {
   // check to see if fuel is between 0-100.0
   if (fuel >= 0 && fuel <= 100.0) {
     this->fuel = fuel;
@@ -58,33 +58,33 @@ void AirCraft::setFuel(float fuel) {
         std::to_string(0.0) + ", " + std::to_string(100.0) + "]"));
   }
 }
-void AirCraft::setWeight(int weight) {
+void Aircraft::setWeight(int weight) {
   // check to see if weight is above 0
   if (weight < 0) {
     throw(out_of_range("This value cannot be less than 0"));
   } else
     this->weight = weight;
 }
-void AirCraft::setFlightNumber(int flightNumber) {
+void Aircraft::setFlightNumber(int flightNumber) {
   // must be greater than 0
   if (flightNumber < 0) {
     throw(out_of_range("This value cannot be less than 0"));
   } else
     this->flightNumber = flightNumber;
 }
-void AirCraft::setSpeed(int speed) {
+void Aircraft::setSpeed(int speed) {
   // Positive speed is forward, Negative is backwards
   this->speed = speed;
 }
 
-void AirCraft::setIsEmergency(bool isEmergency) {
+void Aircraft::setIsEmergency(bool isEmergency) {
   this->isEmergency = isEmergency;
 }
 
 // getters
-float AirCraft::getFuel() { return fuel; }
-int AirCraft::getWeight() { return weight; }
-int AirCraft::getFlightNumber() { return flightNumber; }
-int AirCraft::getSpeed() { return speed; }
-bool AirCraft::getIsEmergency() { return isEmergency; }
-sf::Sprite* AirCraft::getBody() { return body; }
+float Aircraft::getFuel() { return fuel; }
+int Aircraft::getWeight() { return weight; }
+int Aircraft::getFlightNumber() { return flightNumber; }
+int Aircraft::getSpeed() { return speed; }
+bool Aircraft::getIsEmergency() { return isEmergency; }
+sf::Sprite* Aircraft::getBody() { return body; }

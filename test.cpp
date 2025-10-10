@@ -4,7 +4,7 @@
 #include <iostream>
 #include <stdexcept>
 
-#include "AirCraft.h"
+#include "Aircraft.h"
 #include "CargoPlane.h"
 #include "CommercialPlane.h"
 #include "Plane.h"

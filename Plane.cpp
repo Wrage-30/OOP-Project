@@ -6,7 +6,7 @@ Plane::Plane() : Plane(0, 0, 0, 0, false, 0) {}
 
 Plane::Plane(float fuel, int weight, int flightNumber, int speed,
              bool isEmergency, int wingspan)
-    : AirCraft(fuel, weight, flightNumber, speed, isEmergency),
+    : Aircraft(fuel, weight, flightNumber, speed, isEmergency),
       wingspan(wingspan) {}
 
 Plane::~Plane() {}
