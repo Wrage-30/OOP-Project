@@ -17,7 +17,7 @@ CommercialPlane::CommercialPlane(float fuel, int weight, int flightNumber,
 
   // Loading Texture from a file
   if (!airplaneTexture->loadFromFile("assets/CommercialSprite(100x100).png")) {
-    throw(std::runtime_error("File failed to load"));
+    throw(std::runtime_error("CommercialPlane Texture File failed to load"));
   }
 
   // Assign the texture to the body Sprite
@@ -41,7 +41,7 @@ void CommercialPlane::flyCircle() {
 // Setter
 void CommercialPlane::setPassengers(int passengers) {
   if (passengers < 0) {
-    throw(out_of_range("This value cannot be less than 0"));
+    throw(out_of_range("This value(CommercialPlane passengers) cannot be less than 0"));
   } else
     this->passengers = passengers;
 }

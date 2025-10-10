@@ -8,15 +8,14 @@
 
 using namespace std;
 
-// Need Implementing
 Aircraft::Aircraft() : Aircraft(0, 0, 0, 0, false) {}
 Aircraft::Aircraft(float fuel, int weight, int flightNumber, int speed,
                    bool isEmergency)
-    : weight(weight),
-      flightNumber(flightNumber),
-      speed(speed),
-      isEmergency(isEmergency) {
+    : speed(speed), isEmergency(isEmergency) {
+  // Using setters for error handling
   setFuel(fuel);
+  setWeight(weight);
+  setFlightNumber(flightNumber);
   // Creating an empty Texture and Sprite in the heap
   airplaneTexture = new sf::Texture;
   body = new sf::Sprite();
@@ -54,21 +53,21 @@ void Aircraft::setFuel(float fuel) {
   } else {
     // throwing an error for out of range value
     throw(out_of_range(
-        "Value " + std::to_string(fuel) + " is outside the expected range [" +
+        "Value for fuel: " + std::to_string(fuel) + " is outside the expected range [" +
         std::to_string(0.0) + ", " + std::to_string(100.0) + "]"));
   }
 }
 void Aircraft::setWeight(int weight) {
   // check to see if weight is above 0
   if (weight < 0) {
-    throw(out_of_range("This value cannot be less than 0"));
+    throw(out_of_range("This value(weight) cannot be less than 0"));
   } else
     this->weight = weight;
 }
 void Aircraft::setFlightNumber(int flightNumber) {
   // must be greater than 0
   if (flightNumber < 0) {
-    throw(out_of_range("This value cannot be less than 0"));
+    throw(out_of_range("This value(flightNumber) cannot be less than 0"));
   } else
     this->flightNumber = flightNumber;
 }

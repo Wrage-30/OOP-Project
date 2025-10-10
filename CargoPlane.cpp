@@ -21,7 +21,7 @@ CargoPlane::CargoPlane(float fuel, int weight, int flightNumber, int speed,
  
   // Loading Texture from a file
   if (!airplaneTexture->loadFromFile("assets/CargoSprite(100x100).png")) {
-    throw(std::runtime_error("File failed to load"));
+    throw(std::runtime_error("CargoPlane Texture file failed to load"));
   }
 
   // Assign the texture to the body Sprite

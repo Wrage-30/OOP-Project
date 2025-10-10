@@ -32,14 +32,14 @@ class Aircraft {
   // function to reduce fuel if told to circle (unable to land)
   void virtual flyCircle() = 0;
 
-  // setters
+  // Setters
   void setFuel(float fuel);
   void setWeight(int weight);
   void setFlightNumber(int flightNumber);
   void setSpeed(int speed);
   void setIsEmergency(bool isEmergency);
 
-  // getters
+  // Getters
   float getFuel();
   int getWeight();
   int getFlightNumber();

@@ -16,7 +16,7 @@ int main() {
     // fuel, weight,flightnumber, speed, isEmergency
     // AirCraft a1 = AirCraft(1, 1, 1, 1, false);
     CommercialPlane plane1 =
-        CommercialPlane(50.5, 100, 1, 1000, false, 34, 200);
+        CommercialPlane(50.5, -100, 1, 1000, false, 34, 200);
     plane1.getBody()->setRotation(110);
     plane1.getBody()->setPosition(270, 0);
 
