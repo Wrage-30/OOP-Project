@@ -1,4 +1,4 @@
-// Testing the AirCraft class before making it a abstract class
+// Testing the Class Heirarchy and the 
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -25,9 +25,10 @@ int main() {
     plane2.getBody()->setRotation(170);
 
     // menu shape making
-    sf::RectangleShape menuBackground = RectangleShape(sf::Vector2f(300, 700));
+    sf::RectangleShape menuBackground = RectangleShape(sf::Vector2f(200, 720));
     Color menu = Color(150, 150, 150);
     menuBackground.setFillColor(menu);
+
     menuBackground.setPosition(sf::Vector2f(0, 0));
 
     // Assigning a new sprite and texture to the background
@@ -43,7 +44,7 @@ int main() {
     backgroundSprite.setPosition(0, 0);
     backgroundSprite.move(300, 0);
 
-    sf::RenderWindow window(sf::VideoMode(1000, 700), "AirCraft Testing",
+    sf::RenderWindow window(sf::VideoMode(1080, 720), "AirCraft Testing",
                             sf::Style::Default);
 
     window.setPosition(sf::Vector2i(10, 10));
